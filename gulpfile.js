@@ -2,7 +2,7 @@ var gulp = require('gulp'),
   	connect = require('gulp-connect');
  
 gulp.task('webserver', function() {
-  connect.server();
+  connect.server({"port" : 5555});
 });
  
 gulp.task('default', ['webserver']);
