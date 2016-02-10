@@ -29,11 +29,34 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>
   <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>  
 </head>
 
 <body>
+
+  <script type="text/javascript">
+      var app = angular.module('myApp', []);
+      function PeopleCtrl($scope, $http) { 
+
+        $scope.words = [];
+
+        $scope.loadPeople = function() {
+          var httpRequest = $http({
+            method: 'GET',
+            url: 'API/example.json'
+          }).success(function(data, status) {
+            if (data && data.words) {
+                $scope.words = data.words;
+            } else {
+              alert("Something wrong with data!")
+            }
+          });
+        };
+      }
+      app.controller("PeopleCtrl", PeopleCtrl); 
+  </script>
+
   <nav class="navbar navbar-default navbar-pf" role="navigation">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
@@ -128,22 +151,25 @@
         </ol>
         <h1>Basic</h1>
 
-        <div ng-app="myApp" ng-controller="myCtrl">
-
-          <p>Today's welcome message is:</p>
-          <h1>{{myWelcome}}</h1>
-
+        <div ng-app="myApp">
+          <div ng-controller="PeopleCtrl">
+            <p>Click <a ng-click="loadPeople()">here</a> to load data.</p>
+            <table>
+              <tr>
+                <th>Word</th>
+                <th>Count</th>
+                <th>Frequency</th>
+                <th>Density</th>
+              </tr>
+              <tr ng-repeat="word in words">
+                <td>{{word.word}}</td>
+                <td>{{word.count}}</td>
+                <td>{{word.frequency}}</td>
+                <td>{{word.density}}</td>
+              </tr>
+            </table>
+          </div>
         </div>
-
-        <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope, $http) {
-          $http.get("API/example.json")
-          .then(function(response) {
-            $scope.myWelcome = response.data;
-          });
-        });
-        </script>
 
         <table class="datatable table table-striped table-bordered">
           <thead>
@@ -572,7 +598,6 @@
       $('.datatable').dataTable();
     });
   </script>
-
 </body>
 
 </html>
