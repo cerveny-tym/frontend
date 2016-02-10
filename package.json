@@ -24,8 +24,11 @@
     "angular-datatables": "^0.5.3",
     "bootstrap": "^3.3.6",
     "datatables": "^1.10.9",
+    "angular-chart.js": "^0.8.8",
+    "angular-chartjs": "0.0.5",
     "jquery": "^2.2.0",
-    "patternfly": "^3.0.0"
+    "patternfly": "^3.0.0",
+    "tc-angular-chartjs": "^1.0.13"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

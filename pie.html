@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en-us" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en-us">
+<!--<![endif]-->
+
+<head>
+  <title>Red Team Buzzword Detector</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="node_modules/patternfly/dist/img/favicon.ico">
+  <!-- iPad retina icon -->
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href=".node_modules/patternfly/dist/img/apple-touch-icon-precomposed-152.png">
+  <!-- iPad retina icon (iOS < 7) -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="node_modules/patternfly/dist/img/apple-touch-icon-precomposed-144.png">
+  <!-- iPad non-retina icon -->
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="node_modules/patternfly/dist/img/apple-touch-icon-precomposed-76.png">
+  <!-- iPad non-retina icon (iOS < 7) -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="node_modules/patternfly/dist/img/apple-touch-icon-precomposed-72.png">
+  <!-- iPhone 6 Plus icon -->
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="node_modules/patternfly/dist/img/apple-touch-icon-precomposed-180.png">
+  <!-- iPhone retina icon (iOS < 7) -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="node_modules/patternfly/dist/img/apple-touch-icon-precomposed-114.png">
+  <!-- iPhone non-retina icon (iOS < 7) -->
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="node_modules/patternfly/dist/img/apple-touch-icon-precomposed-57.png">
+  <link rel="stylesheet" href="node_modules/patternfly/dist/css/patternfly.min.css">
+  <link rel="stylesheet" href="node_modules/patternfly/dist/css/patternfly-additions.min.css">
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script> 
+  <script src="bower_components/Chart.js/Chart.js">
+</script>
+
+<script src="bower_components/angular-chart.js/dist/angular-chart.js">
+</script>
+<link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+</head>
+<body>
+
+<script type="text/javascript">
+angular.module("app", ["chart.js"]).controller("Count", function ($scope) {
+  $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+  $scope.data = [300, 500, 100];
+});
+</script>
+
+<nav class="navbar navbar-default navbar-pf" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a id="logo" class="navbar-brand" href="/" style="font-size: 36px">Red Team Buzzword Detector</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-utility">
+        <li>
+          <a href="#">Status</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="pficon pficon-user"></span> Brian Johnson <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li>
+              <a href="#">Another link</a>
+            </li>
+            <li>
+              <a href="#">Something else here</a>
+            </li>
+            <li class="divider"></li>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#">More options</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Link</a>
+                </li>
+                <li>
+                  <a href="#">Another link</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">One more separated link</a>
+                </li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="#">One more separated link</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-primary">
+        <li class="active">
+          <a href="basic.html" class="active">Basic</a>
+        </li>
+        <li>
+          <a href="bootstrap-treeview-2.html">Tree View</a>
+        </li>
+        <li>
+          <a href="dashboard.html">Dashboard</a>
+        </li>
+        <li>
+          <a href="form.html">Form</a>
+        </li>
+        <li>
+          <a href="tab.html">Tab</a>
+        </li>
+        <li>
+          <a href="typography-2.html">Typography</a>
+        </li>
+        <li>
+          <a href="cards.html">Cards</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div ng-app="app">
+<h1>Count</h1>
+<div ng-controller="Count">
+<canvas id="count" class="chart chart-doughnut"
+  chart-data="data" chart-labels="labels">
+</canvas> 
+
+<h1>Frequency</h1>
+<div ng-controller="Count">
+<canvas id="freq" class="chart chart-doughnut"
+  chart-data="data" chart-labels="labels">
+</canvas> 
+
+<h1>Density</h1>
+<div ng-controller="Count">
+<canvas id="den" class="chart chart-doughnut"
+  chart-data="data" chart-labels="labels">
+</canvas> 
+
+</div>
+</div>
+
+
+
+</body>
+</html>
