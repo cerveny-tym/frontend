@@ -29,7 +29,8 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>
+  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>  
+  <script src="node_modules/angular/angular.min.js"></script>
 </head>
 
 <body>
@@ -128,6 +129,24 @@
           <li>Basic</li>
         </ol>
         <h1>Basic</h1>
+
+        <div ng-app="myApp" ng-controller="myCtrl"> 
+
+          <p>Today's welcome message is:</p>
+          <h1>{{myWelcome}}</h1>
+
+        </div>
+
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+          $http.get("http://jsonplaceholder.typicode.com/posts/1")
+          .then(function(response) {
+            $scope.myWelcome = response.data;
+          });
+        });
+        </script>
+
         <table class="datatable table table-striped table-bordered">
           <thead>
             <tr>

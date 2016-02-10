@@ -21,7 +21,13 @@
   "homepage": "https://github.com/cerveny-tym/frontend#readme",
   "dependencies": {
     "bootstrap": "^3.3.6",
+    "angular": "*",
     "jquery": "^2.2.0",
     "patternfly": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^2.3.1",
+    "gulp-serve": "^1.2.0"
   }
 }
