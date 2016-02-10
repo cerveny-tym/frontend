@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/cerveny-tym/frontend#readme",
   "dependencies": {
-    "bootstrap": "^3.3.6",
     "angular": "*",
+    "angular-datatables": "^0.5.3",
+    "bootstrap": "^3.3.6",
+    "datatables": "^1.10.9",
     "jquery": "^2.2.0",
     "patternfly": "^3.0.0"
   },

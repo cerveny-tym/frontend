@@ -1,5 +1,0 @@
-{"words":[
-    {"word":"Hello", "count":12, "frequency": 7, "density": 18 },
-    {"word":"Bye", "count":7, "frequency": 6, "density": 5 },
-    {"word":"World", "count":6, "frequency": 3, "density": 2 }
-]}
