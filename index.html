@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Basic - PatternFly</title>
+  <title>Red Team Buzzword Detector</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>  
+  <script src="node_modules/patternfly/dist/js/patternfly.min.js"></script>
   <script src="node_modules/angular/angular.min.js"></script>
 </head>
 
@@ -42,9 +42,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">
-        <img src="node_modules/patternfly/dist/img/brand.svg" alt="PatternFly Enterprise Application" />
-      </a>
+      <a id="logo" class="navbar-brand" href="/" style="font-size: 36px">Red Team Buzzword Detector</a>
     </div>
     <div class="collapse navbar-collapse navbar-collapse-1">
       <ul class="nav navbar-nav navbar-utility">
@@ -130,7 +128,7 @@
         </ol>
         <h1>Basic</h1>
 
-        <div ng-app="myApp" ng-controller="myCtrl"> 
+        <div ng-app="myApp" ng-controller="myCtrl">
 
           <p>Today's welcome message is:</p>
           <h1>{{myWelcome}}</h1>
