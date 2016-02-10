@@ -42,10 +42,76 @@
 <body>
 
   <script type="text/javascript">
-    angular.module("app", ["chart.js"]).controller("Count", function($scope) {
-      $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-      $scope.data = [300, 500, 100];
-    });
+    angular.module("app", ["chart.js"]).controller("Count", function($scope, $http) {
+
+      // Simple GET request example:
+      $http({
+        method: 'GET',
+        url: 'http://localhost:8080/Controller/rest/word'
+      }).then(function successCallback(response) {
+        var labels = [];
+        var data = [];
+        var words = response.data.words;
+
+        for (var i = 0; i < 10; i++) {
+           labels.push(words[i].word);
+           data.push(words[i].count);
+        }
+
+        $scope.labels = labels;
+        $scope.data = data;
+
+  }, function errorCallback(response) {
+    alert("something went wrong")
+  });
+
+}).controller("Freq", function($scope, $http) {
+
+      // Simple GET request example:
+      $http({
+        method: 'GET',
+        url: 'http://localhost:8080/Controller/rest/word'
+      }).then(function successCallback(response) {
+        var labels = [];
+        var data = [];
+        var words = response.data.words;
+
+        for (var i = 0; i < 10; i++) {
+           labels.push(words[i].word);
+           data.push(words[i].frequency);
+        }
+
+        $scope.labels = labels;
+        $scope.data = data;
+
+  }, function errorCallback(response) {
+    alert("something went wrong")
+  });
+
+}).controller("Dens", function($scope, $http) {
+
+      // Simple GET request example:
+      $http({
+        method: 'GET',
+        url: 'http://localhost:8080/Controller/rest/word'
+      }).then(function successCallback(response) {
+        var labels = [];
+        var data = [];
+        var words = response.data.words;
+
+        for (var i = 0; i < 10; i++) {
+           labels.push(words[i].word);
+           data.push(words[i].density);
+        }
+
+        $scope.labels = labels;
+        $scope.data = data;
+
+  }, function errorCallback(response) {
+    alert("something went wrong")
+  });
+
+});
   </script>
 
   <nav class="navbar navbar-default navbar-pf" role="navigation">
@@ -59,55 +125,6 @@
       <a id="logo" class="navbar-brand" href="/" style="font-size: 36px">Red Team Buzzword Detector</a>
     </div>
     <div class="collapse navbar-collapse navbar-collapse-1">
-      <!-- <ul class="nav navbar-nav navbar-utility">
-      <li>
-        <a href="#">Status</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <span class="pficon pficon-user"></span> Brian Johnson <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="#">Link</a>
-          </li>
-          <li>
-            <a href="#">Another link</a>
-          </li>
-          <li>
-            <a href="#">Something else here</a>
-          </li>
-          <li class="divider"></li>
-          <li class="dropdown-submenu">
-            <a tabindex="-1" href="#">More options</a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#">Link</a>
-              </li>
-              <li>
-                <a href="#">Another link</a>
-              </li>
-              <li>
-                <a href="#">Something else here</a>
-              </li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li>
-                <a href="#">Separated link</a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="#">One more separated link</a>
-              </li>
-            </ul>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="#">One more separated link</a>
-          </li>
-        </ul>
-      </li>
-    </ul> -->
       <ul class="nav navbar-nav navbar-primary">
         <li class="active">
           <a href="index.html" class="active">Table</a>
@@ -133,17 +150,21 @@
             <h1>Count</h1>
             <canvas id="count" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
             </canvas>
+          </div>
 
+          <div ng-controller="Freq">
             <h1>Frequency</h1>
             <canvas id="freq" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
             </canvas>
-
+          </div>
+          
+          <div ng-controller="Dens">
             <h1>Density</h1>
             <canvas id="den" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
             </canvas>
-
           </div>
         </div>
+
 
 
       </div>
