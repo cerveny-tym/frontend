@@ -144,23 +144,23 @@
           <li>Charts</li>
         </ol>
 
-        <div ng-app="app">
+        <div ng-app="app" display="inline-block">
 
           <div ng-controller="Count">
             <h1>Count</h1>
-            <canvas id="count" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+            <canvas id="count" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-legend="true" width="523px">
             </canvas>
           </div>
 
           <div ng-controller="Freq">
             <h1>Frequency</h1>
-            <canvas id="freq" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+            <canvas id="freq" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-legend="true" width="523px">
             </canvas>
           </div>
           
           <div ng-controller="Dens">
             <h1>Density</h1>
-            <canvas id="den" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+            <canvas id="den" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-legend="true" width="523px">
             </canvas>
           </div>
         </div>
