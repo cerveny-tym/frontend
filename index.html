@@ -140,7 +140,7 @@
         <script>
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope, $http) {
-          $http.get("http://jsonplaceholder.typicode.com/post/1")
+          $http.get("example.json")
           .then(function(response) {
             $scope.myWelcome = response.data;
           });
