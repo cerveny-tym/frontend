@@ -44,7 +44,7 @@
 
     function WordsCtrl(DTOptionsBuilder, DTColumnBuilder) {
       var vm = this;
-      vm.dtOptions = DTOptionsBuilder.fromSource('http://localhost:8080/Controller/rest/word').withDataProp('words')
+      vm.dtOptions = DTOptionsBuilder.fromSource('http://redcontroller-richfaces.rhcloud.com/rest/word').withDataProp('words')
         .withPaginationType('full_numbers').withOption('order', [1, 'desc']);
 
       vm.dtColumns = [
